@@ -1,17 +1,16 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from './componentes/Login';
+import CrearCuenta from './componentes/CrearCuenta';
 
 function App() {
   return (
-    <nav className="flex sm:justify-center space-x-4">
-      {[
-        ['Home', '/dashboard'],
-        ['Team', '/team'],
-        ['Projects', '/projects'],
-        ['Reports', '/reports'],
-      ].map(([title, url]) => (
-        <a href={url} className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">{title}</a>
-      ))}
-    </nav>
+    <Router>
+      <Routes>
+          <Route path="/" exact element={<Login/>} />
+          <Route path="/crear-cuenta" exact element={<CrearCuenta/>} />
+      </Routes>
+    </Router>
   );
 }
 
